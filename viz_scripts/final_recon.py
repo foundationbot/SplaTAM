@@ -181,6 +181,7 @@ def visualize(scene_path, cfg):
                       height=int(cfg['viz_h'] * cfg['view_scale']),
                       visible=True)
 
+    
     im, depth, sil = render(w2c, k, scene_data, scene_depth_data, cfg)
     init_pts, init_cols = rgbd2pcd(im, depth, w2c, k, cfg)
     pcd = o3d.geometry.PointCloud()

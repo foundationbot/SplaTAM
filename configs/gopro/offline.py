@@ -4,16 +4,16 @@ from os.path import join as p_join
 primary_device = "cuda:0"
 seed = 0
 
-base_dir = "./experiments/iPhone_Captures" # Root Directory to Save iPhone Dataset
-scene_name = "splatam_demo" # Scan Name
-num_frames = 5 # Desired number of frames to capture
-depth_scale = 10.0 # Depth Scale used when saving depth
-overwrite = True # Rewrite over dataset if it exists
+base_dir = "./experiments/gopro" # Root Directory to Save iPhone Dataset
+scene_name = "GX010003" # Scan Name
+num_frames = 10 # Desired number of frames to capture
+depth_scale = 1.0 # Depth Scale used when saving depth
+overwrite = False # Rewrite over dataset if it exists
 
 full_res_width = 1920
-full_res_height = 1440
-downscale_factor = 2.0
-densify_downscale_factor = 4.0
+full_res_height = 1080
+downscale_factor = 1.0
+densify_downscale_factor = 1.0
 
 map_every = 1
 if num_frames < 25:
@@ -26,7 +26,7 @@ mapping_iters = 60
 
 config = dict(
     workdir=f"./{base_dir}/{scene_name}",
-    run_name="SplaTAM_iPhone",
+    run_name="SplaTAM_" + scene_name,
     overwrite=overwrite,
     depth_scale=depth_scale,
     num_frames=num_frames,
@@ -39,7 +39,7 @@ config = dict(
     eval_every=1, # Evaluate every nth frame (at end of SLAM)
     scene_radius_depth_ratio=3, # Max First Frame Depth to Scene Radius Ratio (For Pruning/Densification)
     mean_sq_dist_method="projective", # ["projective", "knn"] (Type of Mean Squared Distance Calculation for Scale of Gaussians)
-    gaussian_distribution="isotropic", # ["isotropic", "anisotropic"] (Isotropic -> Spherical Covariance, Anisotropic -> Ellipsoidal Covariance)
+    gaussian_distribution="anisotropic", # ["isotropic", "anisotropic"] (Isotropic -> Spherical Covariance, Anisotropic -> Ellipsoidal Covariance)
     report_iter_progress=False,
     load_checkpoint=False,
     checkpoint_time_idx=130,

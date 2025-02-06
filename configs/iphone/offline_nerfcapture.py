@@ -5,10 +5,10 @@ primary_device = "cuda:0"
 seed = 0
 
 base_dir = "./experiments/iPhone_Captures" # Root Directory to Save iPhone Dataset
-scene_name = "splatam_demo" # Scan Name
-num_frames = 5 # Desired number of frames to capture
+scene_name = "250120143422" # Scan Name
+num_frames = 10 # Desired number of frames to capture
 depth_scale = 10.0 # Depth Scale used when saving depth
-overwrite = True # Rewrite over dataset if it exists
+overwrite = False # Rewrite over dataset if it exists
 
 full_res_width = 1920
 full_res_height = 1440
@@ -50,8 +50,6 @@ config = dict(
         dataset_name="nerfcapture",
         basedir=base_dir,
         sequence=scene_name,
-        downscale_factor=downscale_factor,
-        densify_downscale_factor=densify_downscale_factor,
         desired_image_height=int(full_res_height//downscale_factor),
         desired_image_width=int(full_res_width//downscale_factor),
         densification_image_height=int(full_res_height//densify_downscale_factor),

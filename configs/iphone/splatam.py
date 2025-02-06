@@ -4,8 +4,8 @@ from os.path import join as p_join
 primary_device = "cuda:0"
 seed = 0
 
-base_dir = "./experiments/iPhone_Captures" # Root Directory to Save iPhone Dataset
-scene_name = "offline_demo" # Scan Name
+base_dir = "experiments/iPhone_Captures" # Root Directory to Save iPhone Dataset
+scene_name = "250120143422" # Scan Name
 num_frames = 10 # Desired number of frames to capture
 depth_scale = 10.0 # Depth Scale used when saving depth
 overwrite = False # Rewrite over dataset if it exists
